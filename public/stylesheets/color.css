@@ -34,3 +34,11 @@ a.firo-bottom {
 }
 
 /*# sourceMappingURL=color-4.css.map */
+
+
+#map {
+  width: 100%;
+  height:calc(100vh - 120px);
+  float: left;
+}
+

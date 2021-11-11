@@ -39,6 +39,12 @@ class BaseController extends Controller
         
         // Preload any models, libraries, etc, here.
         // E.g.: $this->session = \Config\Services::session();
+		
+        $uri = uri_string(true);
+		$uri_array = explode("/",$uri);
+		
+		define("CONTROLADOR", strtolower($uri_array[0]));
+		define("METODO", strtolower($uri_array[1]));
 
         $this->data = [];
     }

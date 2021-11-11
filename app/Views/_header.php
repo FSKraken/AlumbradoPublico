@@ -63,13 +63,13 @@
 									<ul id="menu-main" class="nav-menu float-xl-left text-lg-center link-padding-tb-25px dropdown-dark">
 										<li><a href="<?php echo base_url(); ?>/go/mapa">Mapa</a></li>
 										<li><a href="<?php echo base_url(); ?>/go/consulta">Consultar reporte</a></li>
-										<li><a href="<?php echo base_url(); ?>/go/info">Información</a></li>
+										<li><a href="<?php echo base_url(); ?>/go/info">Proyecto</a></li>
 										<li><a href="<?php echo base_url(); ?>/go/admin"><i class="i-admin"></i> Admin</a></li>
 									</ul>
 								</div>
 								<div class="col-lg-2 col-md-12  d-none d-lg-block">
-									<a href="https://www.facebook.com/AyuntamientoVDA/" class="btn btn-sm border-radius-5 margin-tb-20px text-white  background-second-color  box-shadow float-right padding-lr-20px margin-left-30px d-block">		
-									<i class="i-facebook  margin-right-10px"></i>  Facebook</a>
+									<a href="https://www.facebook.com/AyuntamientoVDA/" class="btn btn-sm border-radius-5 margin-tb-20px text-white  background-second-color  box-shadow float-right padding-lr-20px margin-left-30px text-nowrap">		
+									<i class="i-facebook"></i>  Facebook</a>
 								</div>
 							</div>
 						</div>
@@ -78,7 +78,6 @@
 			</div>
 		</header>
 
-<section class="padding-tb-10px">
-	<div class="container">
+
 
 	

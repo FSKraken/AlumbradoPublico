@@ -2414,6 +2414,18 @@ a.firo-bottom.md {
 a.firo-bottom.md .fa {
   margin-left: 10px;
 }
+
+a.firo-bottom.lg {
+  padding: 6px 40px 6px 40px;
+  -webkit-box-shadow: 0px 0px 36px -13px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 36px -13px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 36px -13px rgba(0, 0, 0, 0.75);
+}
+a.firo-bottom.lg .fa {
+  margin-left: 10px;
+}
+
+
 a.firo-bottom.sm-block {
   display: block;
   padding: 6px 40px 6px 40px;
@@ -4275,8 +4287,8 @@ footer.layout-dark .nile-widget.widget_nav_menu ul li a {
   border-bottom: 1px solid rgba(238, 238, 238, 0.1);
 }
 footer.layout-dark .nile-widget.widget_nav_menu ul li a:before {
-  content: "\e83d";
-  font-family: 'koral-icons';
+  content: "\35";
+  font-family: 'ElegantIcons';
   color: #fff;
   display: inline-block;
   margin-right: 5px;
