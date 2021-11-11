@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <!--[if lt IE 9]><script language="javascript" type="text/javascript" src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <meta charset="UTF-8">
+  <style>
+    html {
+      font-size: 100%;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+    a:focus {
+      outline: thin dotted #333;
+      outline: 5px auto -webkit-focus-ring-color;
+      outline-offset: -2px;
+    }
+    a:hover,
+    a:active {
+      outline: 0;
+    }
+    input {
+      margin: 0;
+      font-size: 100%;
+      vertical-align: middle;
+      *overflow: visible;
+      line-height: normal;
+    }
+    input::-moz-focus-inner {
+      padding: 0;
+      border: 0;
+    }
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      line-height: 20px;
+      color: #333;
+      background-color: #fff;
+    }
+    a {
+      color: #08c;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #005580;
+      text-decoration: underline;
+    }
+    .row {
+      margin-left: -20px;
+      *zoom: 1;
+    }
+    .row:before,
+    .row:after {
+      display: table;
+      content: "";
+      line-height: 0;
+    }
+    .row:after {
+      clear: both;
+    }
+    .span3 {
+      float: left;
+      min-height: 1px;
+      margin-left: 20px;
+      width: 220px;
+    }
+    .container {
+      width: 940px;
+      margin-right: auto;
+      margin-left: auto;
+      *zoom: 1;
+    }
+    .container:before,
+    .container:after {
+      display: table;
+      content: "";
+      line-height: 0;
+    }
+    .container:after {
+      clear: both;
+    }
+    small {
+      font-size: 85%;
+    }
+    h1 {
+      margin: 10px 0;
+      font-family: inherit;
+      font-weight: bold;
+      line-height: 20px;
+      color: inherit;
+      text-rendering: optimizelegibility;
+      line-height: 40px;
+      font-size: 38.5px;
+    }
+    h1 small {
+      font-weight: normal;
+      line-height: 1;
+      color: #999;
+      font-size: 24.5px;
+    }
+
+    body {
+      margin-top: 90px;
+    }
+    .header {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      margin-left: -480px;
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      padding-top: 10px;
+      z-index: 10;
+    }
+    .footer {
+      color: #ddd;
+      font-size: 12px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .footer a {
+      color: #ccc;
+      text-decoration: underline;
+    }
+    .the-icons {
+      font-size: 14px;
+      line-height: 24px;
+    }
+    .switch {
+      position: absolute;
+      right: 0;
+      bottom: 10px;
+      color: #666;
+    }
+    .switch input {
+      margin-right: 0.3em;
+    }
+    .codesOn .i-name {
+      display: none;
+    }
+    .codesOn .i-code {
+      display: inline;
+    }
+    .i-code {
+      display: none;
+    }
+    @font-face {
+      font-family: 'koral-icons';
+      src: url('./font/koral-icons.eot?42770777');
+      src: url('./font/koral-icons.eot?42770777#iefix') format('embedded-opentype'),
+           url('./font/koral-icons.woff?42770777') format('woff'),
+           url('./font/koral-icons.ttf?42770777') format('truetype'),
+           url('./font/koral-icons.svg?42770777#koral-icons') format('svg');
+      font-weight: normal;
+      font-style: normal;
+    }
+    .demo-icon {
+      font-family: "koral-icons";
+      font-style: normal;
+      font-weight: normal;
+      speak: never;
+     
+      display: inline-block;
+      text-decoration: inherit;
+      width: 1em;
+      margin-right: .2em;
+      text-align: center;
+      /* opacity: .8; */
+     
+      /* For safety - reset parent styles, that can break glyph codes*/
+      font-variant: normal;
+      text-transform: none;
+     
+      /* fix buttons height, for twitter bootstrap */
+      line-height: 1em;
+     
+      /* Animation center compensation - margins should be symmetric */
+      /* remove if not needed */
+      margin-left: .2em;
+     
+      /* You can be more comfortable with increased icons size */
+      /* font-size: 120%; */
+     
+      /* Font smoothing. That was taken from TWBS */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+     
+      /* Uncomment for 3D effect */
+      /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+    }
+    </style>
+    <link rel="stylesheet" href="css/animation.css"><!--[if IE 7]><link rel="stylesheet" href="css/" + font.fontname + "-ie7.css"><![endif]-->
+    <script>
+      function toggleCodes(on) {
+        var obj = document.getElementById('icons');
+      
+        if (on) {
+          obj.className += ' codesOn';
+        } else {
+          obj.className = obj.className.replace(' codesOn', '');
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container header">
+      <h1>koral-icons <small>font demo</small></h1>
+      <label class="switch">
+        <input type="checkbox" onclick="toggleCodes(this.checked)">show codes
+      </label>
+    </div>
+    <div class="container" id="icons">
+      <div class="row">
+        <div class="span3" title="Code: 0xe800">
+          <i class="demo-icon i-pin">&#xe800;</i> <span class="i-name">i-pin</span><span class="i-code">0xe800</span>
+        </div>
+        <div class="span3" title="Code: 0xe801">
+          <i class="demo-icon i-arbol">&#xe801;</i> <span class="i-name">i-arbol</span><span class="i-code">0xe801</span>
+        </div>
+        <div class="span3" title="Code: 0xe802">
+          <i class="demo-icon i-config">&#xe802;</i> <span class="i-name">i-config</span><span class="i-code">0xe802</span>
+        </div>
+        <div class="span3" title="Code: 0xe803">
+          <i class="demo-icon i-editar">&#xe803;</i> <span class="i-name">i-editar</span><span class="i-code">0xe803</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe804">
+          <i class="demo-icon i-light">&#xe804;</i> <span class="i-name">i-light</span><span class="i-code">0xe804</span>
+        </div>
+        <div class="span3" title="Code: 0xe805">
+          <i class="demo-icon i-cart">&#xe805;</i> <span class="i-name">i-cart</span><span class="i-code">0xe805</span>
+        </div>
+        <div class="span3" title="Code: 0xe806">
+          <i class="demo-icon i-warning">&#xe806;</i> <span class="i-name">i-warning</span><span class="i-code">0xe806</span>
+        </div>
+        <div class="span3" title="Code: 0xe807">
+          <i class="demo-icon i-wallet">&#xe807;</i> <span class="i-name">i-wallet</span><span class="i-code">0xe807</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe808">
+          <i class="demo-icon i-ayuda">&#xe808;</i> <span class="i-name">i-ayuda</span><span class="i-code">0xe808</span>
+        </div>
+        <div class="span3" title="Code: 0xe809">
+          <i class="demo-icon i-ok">&#xe809;</i> <span class="i-name">i-ok</span><span class="i-code">0xe809</span>
+        </div>
+        <div class="span3" title="Code: 0xe80a">
+          <i class="demo-icon i-educacion">&#xe80a;</i> <span class="i-name">i-educacion</span><span class="i-code">0xe80a</span>
+        </div>
+        <div class="span3" title="Code: 0xe80b">
+          <i class="demo-icon i-herramientas">&#xe80b;</i> <span class="i-name">i-herramientas</span><span class="i-code">0xe80b</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe80c">
+          <i class="demo-icon i-cancelar">&#xe80c;</i> <span class="i-name">i-cancelar</span><span class="i-code">0xe80c</span>
+        </div>
+        <div class="span3" title="Code: 0xe80d">
+          <i class="demo-icon i-chat">&#xe80d;</i> <span class="i-name">i-chat</span><span class="i-code">0xe80d</span>
+        </div>
+        <div class="span3" title="Code: 0xe80e">
+          <i class="demo-icon i-settings">&#xe80e;</i> <span class="i-name">i-settings</span><span class="i-code">0xe80e</span>
+        </div>
+        <div class="span3" title="Code: 0xe80f">
+          <i class="demo-icon i-mensaje">&#xe80f;</i> <span class="i-name">i-mensaje</span><span class="i-code">0xe80f</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe810">
+          <i class="demo-icon i-palette">&#xe810;</i> <span class="i-name">i-palette</span><span class="i-code">0xe810</span>
+        </div>
+        <div class="span3" title="Code: 0xe811">
+          <i class="demo-icon i-reloj">&#xe811;</i> <span class="i-name">i-reloj</span><span class="i-code">0xe811</span>
+        </div>
+        <div class="span3" title="Code: 0xe812">
+          <i class="demo-icon i-corazon">&#xe812;</i> <span class="i-name">i-corazon</span><span class="i-code">0xe812</span>
+        </div>
+        <div class="span3" title="Code: 0xe813">
+          <i class="demo-icon i-papelera">&#xe813;</i> <span class="i-name">i-papelera</span><span class="i-code">0xe813</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe814">
+          <i class="demo-icon i-portafolios">&#xe814;</i> <span class="i-name">i-portafolios</span><span class="i-code">0xe814</span>
+        </div>
+        <div class="span3" title="Code: 0xe815">
+          <i class="demo-icon i-campana">&#xe815;</i> <span class="i-name">i-campana</span><span class="i-code">0xe815</span>
+        </div>
+        <div class="span3" title="Code: 0xe816">
+          <i class="demo-icon i-bloques">&#xe816;</i> <span class="i-name">i-bloques</span><span class="i-code">0xe816</span>
+        </div>
+        <div class="span3" title="Code: 0xe817">
+          <i class="demo-icon i-chart">&#xe817;</i> <span class="i-name">i-chart</span><span class="i-code">0xe817</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe818">
+          <i class="demo-icon i-cronometro">&#xe818;</i> <span class="i-name">i-cronometro</span><span class="i-code">0xe818</span>
+        </div>
+        <div class="span3" title="Code: 0xe819">
+          <i class="demo-icon i-mundo">&#xe819;</i> <span class="i-name">i-mundo</span><span class="i-code">0xe819</span>
+        </div>
+        <div class="span3" title="Code: 0xe81a">
+          <i class="demo-icon i-usuario">&#xe81a;</i> <span class="i-name">i-usuario</span><span class="i-code">0xe81a</span>
+        </div>
+        <div class="span3" title="Code: 0xe81b">
+          <i class="demo-icon i-menu">&#xe81b;</i> <span class="i-name">i-menu</span><span class="i-code">0xe81b</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe81c">
+          <i class="demo-icon i-cerrado">&#xe81c;</i> <span class="i-name">i-cerrado</span><span class="i-code">0xe81c</span>
+        </div>
+        <div class="span3" title="Code: 0xe81d">
+          <i class="demo-icon i-abierto">&#xe81d;</i> <span class="i-name">i-abierto</span><span class="i-code">0xe81d</span>
+        </div>
+        <div class="span3" title="Code: 0xe81e">
+          <i class="demo-icon i-tag">&#xe81e;</i> <span class="i-name">i-tag</span><span class="i-code">0xe81e</span>
+        </div>
+        <div class="span3" title="Code: 0xe81f">
+          <i class="demo-icon i-lupa">&#xe81f;</i> <span class="i-name">i-lupa</span><span class="i-code">0xe81f</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe820">
+          <i class="demo-icon i-transporte">&#xe820;</i> <span class="i-name">i-transporte</span><span class="i-code">0xe820</span>
+        </div>
+        <div class="span3" title="Code: 0xe821">
+          <i class="demo-icon i-trofeo">&#xe821;</i> <span class="i-name">i-trofeo</span><span class="i-code">0xe821</span>
+        </div>
+        <div class="span3" title="Code: 0xe822">
+          <i class="demo-icon i-virus">&#xe822;</i> <span class="i-name">i-virus</span><span class="i-code">0xe822</span>
+        </div>
+        <div class="span3" title="Code: 0xe823">
+          <i class="demo-icon i-premios">&#xe823;</i> <span class="i-name">i-premios</span><span class="i-code">0xe823</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe824">
+          <i class="demo-icon i-medalla">&#xe824;</i> <span class="i-name">i-medalla</span><span class="i-code">0xe824</span>
+        </div>
+        <div class="span3" title="Code: 0xe825">
+          <i class="demo-icon i-clipboard">&#xe825;</i> <span class="i-name">i-clipboard</span><span class="i-code">0xe825</span>
+        </div>
+        <div class="span3" title="Code: 0xe826">
+          <i class="demo-icon i-clip">&#xe826;</i> <span class="i-name">i-clip</span><span class="i-code">0xe826</span>
+        </div>
+        <div class="span3" title="Code: 0xe827">
+          <i class="demo-icon i-agenda">&#xe827;</i> <span class="i-name">i-agenda</span><span class="i-code">0xe827</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe828">
+          <i class="demo-icon i-info">&#xe828;</i> <span class="i-name">i-info</span><span class="i-code">0xe828</span>
+        </div>
+        <div class="span3" title="Code: 0xe829">
+          <i class="demo-icon i-abajo">&#xe829;</i> <span class="i-name">i-abajo</span><span class="i-code">0xe829</span>
+        </div>
+        <div class="span3" title="Code: 0xe82a">
+          <i class="demo-icon i-tarjeta">&#xe82a;</i> <span class="i-name">i-tarjeta</span><span class="i-code">0xe82a</span>
+        </div>
+        <div class="span3" title="Code: 0xe82b">
+          <i class="demo-icon i-izquierda">&#xe82b;</i> <span class="i-name">i-izquierda</span><span class="i-code">0xe82b</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe82c">
+          <i class="demo-icon i-derecha">&#xe82c;</i> <span class="i-name">i-derecha</span><span class="i-code">0xe82c</span>
+        </div>
+        <div class="span3" title="Code: 0xe82d">
+          <i class="demo-icon i-arriba">&#xe82d;</i> <span class="i-name">i-arriba</span><span class="i-code">0xe82d</span>
+        </div>
+        <div class="span3" title="Code: 0xe82e">
+          <i class="demo-icon i-bloqueo">&#xe82e;</i> <span class="i-name">i-bloqueo</span><span class="i-code">0xe82e</span>
+        </div>
+        <div class="span3" title="Code: 0xe82f">
+          <i class="demo-icon i-power">&#xe82f;</i> <span class="i-name">i-power</span><span class="i-code">0xe82f</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe830">
+          <i class="demo-icon i-galeria">&#xe830;</i> <span class="i-name">i-galeria</span><span class="i-code">0xe830</span>
+        </div>
+        <div class="span3" title="Code: 0xe831">
+          <i class="demo-icon i-rocket">&#xe831;</i> <span class="i-name">i-rocket</span><span class="i-code">0xe831</span>
+        </div>
+        <div class="span3" title="Code: 0xe832">
+          <i class="demo-icon i-calendario">&#xe832;</i> <span class="i-name">i-calendario</span><span class="i-code">0xe832</span>
+        </div>
+        <div class="span3" title="Code: 0xe833">
+          <i class="demo-icon i-menu_suministros">&#xe833;</i> <span class="i-name">i-menu_suministros</span><span class="i-code">0xe833</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe834">
+          <i class="demo-icon i-fabrica">&#xe834;</i> <span class="i-name">i-fabrica</span><span class="i-code">0xe834</span>
+        </div>
+        <div class="span3" title="Code: 0xe835">
+          <i class="demo-icon i-soporte">&#xe835;</i> <span class="i-name">i-soporte</span><span class="i-code">0xe835</span>
+        </div>
+        <div class="span3" title="Code: 0xe836">
+          <i class="demo-icon i-bolsa">&#xe836;</i> <span class="i-name">i-bolsa</span><span class="i-code">0xe836</span>
+        </div>
+        <div class="span3" title="Code: 0xe837">
+          <i class="demo-icon i-monedas">&#xe837;</i> <span class="i-name">i-monedas</span><span class="i-code">0xe837</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe838">
+          <i class="demo-icon i-impresora">&#xe838;</i> <span class="i-name">i-impresora</span><span class="i-code">0xe838</span>
+        </div>
+        <div class="span3" title="Code: 0xe839">
+          <i class="demo-icon i-libro">&#xe839;</i> <span class="i-name">i-libro</span><span class="i-code">0xe839</span>
+        </div>
+        <div class="span3" title="Code: 0xe83a">
+          <i class="demo-icon i-pago">&#xe83a;</i> <span class="i-name">i-pago</span><span class="i-code">0xe83a</span>
+        </div>
+        <div class="span3" title="Code: 0xe83b">
+          <i class="demo-icon i-calculadora">&#xe83b;</i> <span class="i-name">i-calculadora</span><span class="i-code">0xe83b</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe83c">
+          <i class="demo-icon i-moon">&#xe83c;</i> <span class="i-name">i-moon</span><span class="i-code">0xe83c</span>
+        </div>
+        <div class="span3" title="Code: 0xe83d">
+          <i class="demo-icon i-link">&#xe83d;</i> <span class="i-name">i-link</span><span class="i-code">0xe83d</span>
+        </div>
+        <div class="span3" title="Code: 0xe83e">
+          <i class="demo-icon i-qr">&#xe83e;</i> <span class="i-name">i-qr</span><span class="i-code">0xe83e</span>
+        </div>
+        <div class="span3" title="Code: 0xe83f">
+          <i class="demo-icon i-camara">&#xe83f;</i> <span class="i-name">i-camara</span><span class="i-code">0xe83f</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe841">
+          <i class="demo-icon i-google">&#xe841;</i> <span class="i-name">i-google</span><span class="i-code">0xe841</span>
+        </div>
+        <div class="span3" title="Code: 0xe842">
+          <i class="demo-icon i-whatsapp">&#xe842;</i> <span class="i-name">i-whatsapp</span><span class="i-code">0xe842</span>
+        </div>
+        <div class="span3" title="Code: 0xe843">
+          <i class="demo-icon i-twitter">&#xe843;</i> <span class="i-name">i-twitter</span><span class="i-code">0xe843</span>
+        </div>
+        <div class="span3" title="Code: 0xe844">
+          <i class="demo-icon i-facebook">&#xe844;</i> <span class="i-name">i-facebook</span><span class="i-code">0xe844</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe845">
+          <i class="demo-icon i-undo">&#xe845;</i> <span class="i-name">i-undo</span><span class="i-code">0xe845</span>
+        </div>
+        <div class="span3" title="Code: 0xe846">
+          <i class="demo-icon i-redo">&#xe846;</i> <span class="i-name">i-redo</span><span class="i-code">0xe846</span>
+        </div>
+        <div class="span3" title="Code: 0xe847">
+          <i class="demo-icon i-gauge">&#xe847;</i> <span class="i-name">i-gauge</span><span class="i-code">0xe847</span>
+        </div>
+        <div class="span3" title="Code: 0xe848">
+          <i class="demo-icon i-balance">&#xe848;</i> <span class="i-name">i-balance</span><span class="i-code">0xe848</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe849">
+          <i class="demo-icon i-usuarios">&#xe849;</i> <span class="i-name">i-usuarios</span><span class="i-code">0xe849</span>
+        </div>
+        <div class="span3" title="Code: 0xe84a">
+          <i class="demo-icon i-transfer">&#xe84a;</i> <span class="i-name">i-transfer</span><span class="i-code">0xe84a</span>
+        </div>
+        <div class="span3" title="Code: 0xe84b">
+          <i class="demo-icon i-spin">&#xe84b;</i> <span class="i-name">i-spin</span><span class="i-code">0xe84b</span>
+        </div>
+        <div class="span3" title="Code: 0xe84c">
+          <i class="demo-icon i-paquete">&#xe84c;</i> <span class="i-name">i-paquete</span><span class="i-code">0xe84c</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe84d">
+          <i class="demo-icon i-layers">&#xe84d;</i> <span class="i-name">i-layers</span><span class="i-code">0xe84d</span>
+        </div>
+        <div class="span3" title="Code: 0xe84e">
+          <i class="demo-icon i-bodega">&#xe84e;</i> <span class="i-name">i-bodega</span><span class="i-code">0xe84e</span>
+        </div>
+        <div class="span3" title="Code: 0xe84f">
+          <i class="demo-icon i-atencion">&#xe84f;</i> <span class="i-name">i-atencion</span><span class="i-code">0xe84f</span>
+        </div>
+        <div class="span3" title="Code: 0xe850">
+          <i class="demo-icon i-home">&#xe850;</i> <span class="i-name">i-home</span><span class="i-code">0xe850</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe851">
+          <i class="demo-icon i-resta">&#xe851;</i> <span class="i-name">i-resta</span><span class="i-code">0xe851</span>
+        </div>
+        <div class="span3" title="Code: 0xe852">
+          <i class="demo-icon i-suma">&#xe852;</i> <span class="i-name">i-suma</span><span class="i-code">0xe852</span>
+        </div>
+        <div class="span3" title="Code: 0xe853">
+          <i class="demo-icon i-submenu">&#xe853;</i> <span class="i-name">i-submenu</span><span class="i-code">0xe853</span>
+        </div>
+        <div class="span3" title="Code: 0xe854">
+          <i class="demo-icon i-controles">&#xe854;</i> <span class="i-name">i-controles</span><span class="i-code">0xe854</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe855">
+          <i class="demo-icon i-compara">&#xe855;</i> <span class="i-name">i-compara</span><span class="i-code">0xe855</span>
+        </div>
+        <div class="span3" title="Code: 0xe856">
+          <i class="demo-icon i-iman">&#xe856;</i> <span class="i-name">i-iman</span><span class="i-code">0xe856</span>
+        </div>
+        <div class="span3" title="Code: 0xe857">
+          <i class="demo-icon i-pregunta">&#xe857;</i> <span class="i-name">i-pregunta</span><span class="i-code">0xe857</span>
+        </div>
+        <div class="span3" title="Code: 0xe858">
+          <i class="demo-icon i-visible">&#xe858;</i> <span class="i-name">i-visible</span><span class="i-code">0xe858</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe859">
+          <i class="demo-icon i-oculto">&#xe859;</i> <span class="i-name">i-oculto</span><span class="i-code">0xe859</span>
+        </div>
+        <div class="span3" title="Code: 0xe85a">
+          <i class="demo-icon i-monitor">&#xe85a;</i> <span class="i-name">i-monitor</span><span class="i-code">0xe85a</span>
+        </div>
+        <div class="span3" title="Code: 0xe85b">
+          <i class="demo-icon i-celular">&#xe85b;</i> <span class="i-name">i-celular</span><span class="i-code">0xe85b</span>
+        </div>
+        <div class="span3" title="Code: 0xe85c">
+          <i class="demo-icon i-error">&#xe85c;</i> <span class="i-name">i-error</span><span class="i-code">0xe85c</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe85d">
+          <i class="demo-icon i-check">&#xe85d;</i> <span class="i-name">i-check</span><span class="i-code">0xe85d</span>
+        </div>
+        <div class="span3" title="Code: 0xe85e">
+          <i class="demo-icon i-bloque">&#xe85e;</i> <span class="i-name">i-bloque</span><span class="i-code">0xe85e</span>
+        </div>
+        <div class="span3" title="Code: 0xe85f">
+          <i class="demo-icon i-cpu">&#xe85f;</i> <span class="i-name">i-cpu</span><span class="i-code">0xe85f</span>
+        </div>
+        <div class="span3" title="Code: 0xe860">
+          <i class="demo-icon i-boveda">&#xe860;</i> <span class="i-name">i-boveda</span><span class="i-code">0xe860</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe861">
+          <i class="demo-icon i-target">&#xe861;</i> <span class="i-name">i-target</span><span class="i-code">0xe861</span>
+        </div>
+        <div class="span3" title="Code: 0xe862">
+          <i class="demo-icon i-doctor">&#xe862;</i> <span class="i-name">i-doctor</span><span class="i-code">0xe862</span>
+        </div>
+        <div class="span3" title="Code: 0xe863">
+          <i class="demo-icon i-enviar">&#xe863;</i> <span class="i-name">i-enviar</span><span class="i-code">0xe863</span>
+        </div>
+        <div class="span3" title="Code: 0xe864">
+          <i class="demo-icon i-regla">&#xe864;</i> <span class="i-name">i-regla</span><span class="i-code">0xe864</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe865">
+          <i class="demo-icon i-blinded">&#xe865;</i> <span class="i-name">i-blinded</span><span class="i-code">0xe865</span>
+        </div>
+        <div class="span3" title="Code: 0xe866">
+          <i class="demo-icon i-ahorro">&#xe866;</i> <span class="i-name">i-ahorro</span><span class="i-code">0xe866</span>
+        </div>
+        <div class="span3" title="Code: 0xe867">
+          <i class="demo-icon i-telefono">&#xe867;</i> <span class="i-name">i-telefono</span><span class="i-code">0xe867</span>
+        </div>
+        <div class="span3" title="Code: 0xe868">
+          <i class="demo-icon i-red">&#xe868;</i> <span class="i-name">i-red</span><span class="i-code">0xe868</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe869">
+          <i class="demo-icon i-wizard">&#xe869;</i> <span class="i-name">i-wizard</span><span class="i-code">0xe869</span>
+        </div>
+        <div class="span3" title="Code: 0xe86a">
+          <i class="demo-icon i-idea">&#xe86a;</i> <span class="i-name">i-idea</span><span class="i-code">0xe86a</span>
+        </div>
+        <div class="span3" title="Code: 0xe86b">
+          <i class="demo-icon i-semillero">&#xe86b;</i> <span class="i-name">i-semillero</span><span class="i-code">0xe86b</span>
+        </div>
+        <div class="span3" title="Code: 0xe86c">
+          <i class="demo-icon i-dashboard">&#xe86c;</i> <span class="i-name">i-dashboard</span><span class="i-code">0xe86c</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe86d">
+          <i class="demo-icon i-emoji4_on">&#xe86d;</i> <span class="i-name">i-emoji4_on</span><span class="i-code">0xe86d</span>
+        </div>
+        <div class="span3" title="Code: 0xe86e">
+          <i class="demo-icon i-emoji5_on">&#xe86e;</i> <span class="i-name">i-emoji5_on</span><span class="i-code">0xe86e</span>
+        </div>
+        <div class="span3" title="Code: 0xe86f">
+          <i class="demo-icon i-emoji3_on">&#xe86f;</i> <span class="i-name">i-emoji3_on</span><span class="i-code">0xe86f</span>
+        </div>
+        <div class="span3" title="Code: 0xe870">
+          <i class="demo-icon i-emoji2_on">&#xe870;</i> <span class="i-name">i-emoji2_on</span><span class="i-code">0xe870</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe871">
+          <i class="demo-icon i-emoji1_on">&#xe871;</i> <span class="i-name">i-emoji1_on</span><span class="i-code">0xe871</span>
+        </div>
+        <div class="span3" title="Code: 0xe872">
+          <i class="demo-icon i-emoji3_off">&#xe872;</i> <span class="i-name">i-emoji3_off</span><span class="i-code">0xe872</span>
+        </div>
+        <div class="span3" title="Code: 0xe873">
+          <i class="demo-icon i-emoji5_off">&#xe873;</i> <span class="i-name">i-emoji5_off</span><span class="i-code">0xe873</span>
+        </div>
+        <div class="span3" title="Code: 0xe874">
+          <i class="demo-icon i-emoji4_off">&#xe874;</i> <span class="i-name">i-emoji4_off</span><span class="i-code">0xe874</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe875">
+          <i class="demo-icon i-emoji1_off">&#xe875;</i> <span class="i-name">i-emoji1_off</span><span class="i-code">0xe875</span>
+        </div>
+        <div class="span3" title="Code: 0xe876">
+          <i class="demo-icon i-emoji2_off">&#xe876;</i> <span class="i-name">i-emoji2_off</span><span class="i-code">0xe876</span>
+        </div>
+        <div class="span3" title="Code: 0xe877">
+          <i class="demo-icon i-caja">&#xe877;</i> <span class="i-name">i-caja</span><span class="i-code">0xe877</span>
+        </div>
+        <div class="span3" title="Code: 0xe878">
+          <i class="demo-icon i-objetos">&#xe878;</i> <span class="i-name">i-objetos</span><span class="i-code">0xe878</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe879">
+          <i class="demo-icon i-security">&#xe879;</i> <span class="i-name">i-security</span><span class="i-code">0xe879</span>
+        </div>
+        <div class="span3" title="Code: 0xe87a">
+          <i class="demo-icon i-aumentar">&#xe87a;</i> <span class="i-name">i-aumentar</span><span class="i-code">0xe87a</span>
+        </div>
+        <div class="span3" title="Code: 0xe87b">
+          <i class="demo-icon i-reducir">&#xe87b;</i> <span class="i-name">i-reducir</span><span class="i-code">0xe87b</span>
+        </div>
+        <div class="span3" title="Code: 0xe87c">
+          <i class="demo-icon i-logo1">&#xe87c;</i> <span class="i-name">i-logo1</span><span class="i-code">0xe87c</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe87d">
+          <i class="demo-icon i-retiro">&#xe87d;</i> <span class="i-name">i-retiro</span><span class="i-code">0xe87d</span>
+        </div>
+        <div class="span3" title="Code: 0xe87e">
+          <i class="demo-icon i-factura">&#xe87e;</i> <span class="i-name">i-factura</span><span class="i-code">0xe87e</span>
+        </div>
+        <div class="span3" title="Code: 0xe87f">
+          <i class="demo-icon i-movimientos">&#xe87f;</i> <span class="i-name">i-movimientos</span><span class="i-code">0xe87f</span>
+        </div>
+        <div class="span3" title="Code: 0xe880">
+          <i class="demo-icon i-recibo">&#xe880;</i> <span class="i-name">i-recibo</span><span class="i-code">0xe880</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe881">
+          <i class="demo-icon i-logo2">&#xe881;</i> <span class="i-name">i-logo2</span><span class="i-code">0xe881</span>
+        </div>
+        <div class="span3" title="Code: 0xe882">
+          <i class="demo-icon i-configs">&#xe882;</i> <span class="i-name">i-configs</span><span class="i-code">0xe882</span>
+        </div>
+        <div class="span3" title="Code: 0xe883">
+          <i class="demo-icon i-llave">&#xe883;</i> <span class="i-name">i-llave</span><span class="i-code">0xe883</span>
+        </div>
+        <div class="span3" title="Code: 0xe884">
+          <i class="demo-icon i-logo3">&#xe884;</i> <span class="i-name">i-logo3</span><span class="i-code">0xe884</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe885">
+          <i class="demo-icon i-menu_tools">&#xe885;</i> <span class="i-name">i-menu_tools</span><span class="i-code">0xe885</span>
+        </div>
+        <div class="span3" title="Code: 0xe886">
+          <i class="demo-icon i-meta">&#xe886;</i> <span class="i-name">i-meta</span><span class="i-code">0xe886</span>
+        </div>
+        <div class="span3" title="Code: 0xe887">
+          <i class="demo-icon i-curso">&#xe887;</i> <span class="i-name">i-curso</span><span class="i-code">0xe887</span>
+        </div>
+        <div class="span3" title="Code: 0xe888">
+          <i class="demo-icon i-payment">&#xe888;</i> <span class="i-name">i-payment</span><span class="i-code">0xe888</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe889">
+          <i class="demo-icon i-llamada">&#xe889;</i> <span class="i-name">i-llamada</span><span class="i-code">0xe889</span>
+        </div>
+        <div class="span3" title="Code: 0xe88a">
+          <i class="demo-icon i-manzana">&#xe88a;</i> <span class="i-name">i-manzana</span><span class="i-code">0xe88a</span>
+        </div>
+        <div class="span3" title="Code: 0xe88b">
+          <i class="demo-icon i-menu_red">&#xe88b;</i> <span class="i-name">i-menu_red</span><span class="i-code">0xe88b</span>
+        </div>
+        <div class="span3" title="Code: 0xe88c">
+          <i class="demo-icon i-nutri">&#xe88c;</i> <span class="i-name">i-nutri</span><span class="i-code">0xe88c</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe88d">
+          <i class="demo-icon i-telecom">&#xe88d;</i> <span class="i-name">i-telecom</span><span class="i-code">0xe88d</span>
+        </div>
+        <div class="span3" title="Code: 0xe88e">
+          <i class="demo-icon i-menu_config">&#xe88e;</i> <span class="i-name">i-menu_config</span><span class="i-code">0xe88e</span>
+        </div>
+        <div class="span3" title="Code: 0xe88f">
+          <i class="demo-icon i-menu_wallet">&#xe88f;</i> <span class="i-name">i-menu_wallet</span><span class="i-code">0xe88f</span>
+        </div>
+        <div class="span3" title="Code: 0xe890">
+          <i class="demo-icon i-menu_shopping">&#xe890;</i> <span class="i-name">i-menu_shopping</span><span class="i-code">0xe890</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe891">
+          <i class="demo-icon i-big_retiro">&#xe891;</i> <span class="i-name">i-big_retiro</span><span class="i-code">0xe891</span>
+        </div>
+        <div class="span3" title="Code: 0xe892">
+          <i class="demo-icon i-basket">&#xe892;</i> <span class="i-name">i-basket</span><span class="i-code">0xe892</span>
+        </div>
+        <div class="span3" title="Code: 0xe893">
+          <i class="demo-icon i-big_transfer">&#xe893;</i> <span class="i-name">i-big_transfer</span><span class="i-code">0xe893</span>
+        </div>
+        <div class="span3" title="Code: 0xe894">
+          <i class="demo-icon i-devolucion">&#xe894;</i> <span class="i-name">i-devolucion</span><span class="i-code">0xe894</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xe895">
+          <i class="demo-icon i-big_fondeo">&#xe895;</i> <span class="i-name">i-big_fondeo</span><span class="i-code">0xe895</span>
+        </div>
+        <div class="span3" title="Code: 0xe896">
+          <i class="demo-icon i-dropdown">&#xe896;</i> <span class="i-name">i-dropdown</span><span class="i-code">0xe896</span>
+        </div>
+        <div class="span3" title="Code: 0xe8aa">
+          <i class="demo-icon i-big_tienda">&#xe8aa;</i> <span class="i-name">i-big_tienda</span><span class="i-code">0xe8aa</span>
+        </div>
+        <div class="span3" title="Code: 0xf020">
+          <i class="demo-icon i-tinta">&#xf020;</i> <span class="i-name">i-tinta</span><span class="i-code">0xf020</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xf02c">
+          <i class="demo-icon i-entra">&#xf02c;</i> <span class="i-name">i-entra</span><span class="i-code">0xf02c</span>
+        </div>
+        <div class="span3" title="Code: 0xf02d">
+          <i class="demo-icon i-sale">&#xf02d;</i> <span class="i-name">i-sale</span><span class="i-code">0xf02d</span>
+        </div>
+        <div class="span3" title="Code: 0xf0a3">
+          <i class="demo-icon i-badge">&#xf0a3;</i> <span class="i-name">i-badge</span><span class="i-code">0xf0a3</span>
+        </div>
+        <div class="span3" title="Code: 0xf0d6">
+          <i class="demo-icon i-billete">&#xf0d6;</i> <span class="i-name">i-billete</span><span class="i-code">0xf0d6</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xf0ed">
+          <i class="demo-icon i-download">&#xf0ed;</i> <span class="i-name">i-download</span><span class="i-code">0xf0ed</span>
+        </div>
+        <div class="span3" title="Code: 0xf0ee">
+          <i class="demo-icon i-upload">&#xf0ee;</i> <span class="i-name">i-upload</span><span class="i-code">0xf0ee</span>
+        </div>
+        <div class="span3" title="Code: 0xf0f4">
+          <i class="demo-icon i-taza">&#xf0f4;</i> <span class="i-name">i-taza</span><span class="i-code">0xf0f4</span>
+        </div>
+        <div class="span3" title="Code: 0xf10c">
+          <i class="demo-icon i-vacio">&#xf10c;</i> <span class="i-name">i-vacio</span><span class="i-code">0xf10c</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xf111">
+          <i class="demo-icon i-lleno">&#xf111;</i> <span class="i-name">i-lleno</span><span class="i-code">0xf111</span>
+        </div>
+        <div class="span3" title="Code: 0xf11e">
+          <i class="demo-icon i-meta-1">&#xf11e;</i> <span class="i-name">i-meta-1</span><span class="i-code">0xf11e</span>
+        </div>
+        <div class="span3" title="Code: 0xf132">
+          <i class="demo-icon i-escudo">&#xf132;</i> <span class="i-name">i-escudo</span><span class="i-code">0xf132</span>
+        </div>
+        <div class="span3" title="Code: 0xf141">
+          <i class="demo-icon i-menu_horizontal">&#xf141;</i> <span class="i-name">i-menu_horizontal</span><span class="i-code">0xf141</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xf142">
+          <i class="demo-icon i-menu_vertical">&#xf142;</i> <span class="i-name">i-menu_vertical</span><span class="i-code">0xf142</span>
+        </div>
+        <div class="span3" title="Code: 0xf145">
+          <i class="demo-icon i-cupon">&#xf145;</i> <span class="i-name">i-cupon</span><span class="i-code">0xf145</span>
+        </div>
+        <div class="span3" title="Code: 0xf16a">
+          <i class="demo-icon i-youtube">&#xf16a;</i> <span class="i-name">i-youtube</span><span class="i-code">0xf16a</span>
+        </div>
+        <div class="span3" title="Code: 0xf188">
+          <i class="demo-icon i-bug">&#xf188;</i> <span class="i-name">i-bug</span><span class="i-code">0xf188</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span3" title="Code: 0xf1b3">
+          <i class="demo-icon i-cajas">&#xf1b3;</i> <span class="i-name">i-cajas</span><span class="i-code">0xf1b3</span>
+        </div>
+        <div class="span3" title="Code: 0xf204">
+          <i class="demo-icon i-off">&#xf204;</i> <span class="i-name">i-off</span><span class="i-code">0xf204</span>
+        </div>
+        <div class="span3" title="Code: 0xf205">
+          <i class="demo-icon i-on">&#xf205;</i> <span class="i-name">i-on</span><span class="i-code">0xf205</span>
+        </div>
+      </div>
+    <div class="container footer">Generated by <a href="https://fontello.com">fontello.com</a></div>
+  </body>
+</html>
