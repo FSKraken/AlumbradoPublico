@@ -24,7 +24,9 @@
     </head>
 	
     <body data-site="ML" data-country="MX">
-
+		<script type="text/javascript">
+			var base_url = '<?php echo base_url(); ?>';
+		</script>
 		<header class="default">
 			<div class="up-header background-main-color light d-none d-lg-block">
 				<div class="container">

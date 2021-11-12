@@ -3,7 +3,7 @@ use CodeIgniter\Model;
 
 class LuminariaModel extends Model
 {
-    protected $table          = 'luminaria';
+    protected $table          = 'luminarias';
     protected $primaryKey     = 'id';
     protected $useAutoIncrement = false;
     protected $returnType     = 'App\Entities\Luminaria';
