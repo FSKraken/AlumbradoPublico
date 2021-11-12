@@ -23,25 +23,26 @@ class Go extends BaseController
     }
 
     public function admin_login(){
-
 		$usuario  = $this->request->getPost('usuario');
 		$password = $this->request->getPost('password');
-
 
         if($u = model('UsuarioModel')->find($usuario)){
             if($hash = $u->check_hash($password)){
                 $respuesta = ["hash" => $hash];
-                
+
                 session()->set('logged', $usuario);
             }
-            else{
+            else
                 $respuesta = ["error" => "password"];
-            }
         }
-        else{
+        else
             $respuesta = ["error" => "usuario"];
-        }
 
         echo json_encode($respuesta);
+    }
+
+    public function admin_logout(){
+        session()->destroy();
+        return redirect()->to(base_url()."/go/admin");
     }
 }

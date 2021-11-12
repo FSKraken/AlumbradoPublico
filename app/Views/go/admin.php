@@ -5,7 +5,16 @@
         <div class="col-12 col-md-6">
 
             <?php if(session("logged")){
-                echo "contenido admin";
+            ?>
+                <div class="card my-5">
+                    <div class="card-body">
+                        &nbsp;
+                    </div>
+                </div>
+
+                <a class="btn btn-primary" href="<?php echo base_url(); ?>/go/admin_logout"><i class="i-cerrado"></i> Cerrar sesión</a>
+            
+            <?php
             }
             else{
             ?>
