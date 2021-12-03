@@ -1,5 +1,5 @@
 <div id="map"></div>
-<a href="javascript:ventana()" class="firo-bottom lg firo-demo-back">Reportar un problema</a>
+<a href="javascript:ventana()" class="firo-bottom lg firo-demo-back">¿Como reportar un problema?</a>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzV2K_INKLUT_BmPwTq2WFnmwScLfOJho"></script>
 
 <div class="modal" tabindex="-1" id="ventana">
@@ -7,12 +7,12 @@
     <div class="modal-content">
       
       <div class="modal-body">
-        <h3 class="text-primary">Reportar un problema de alumbrado público en Villa de Álvarez</h3>
+        <h3 class="text-primary">¿Como Reportar un problema de alumbrado público en Villa de Álvarez?</h3>
         <ol class="mt-4 mb-0">
             <li>Ubicar en el mapa la luminaria</li>
             <li>Click en ella para abrir el menu</li>
-            <li>Seleccionar la opción de Nuevo Reporte</li>
-            <li>Llenar el formulario de la opción de Nuevo Reporte</li>
+            <li>Seleccionar la opción de Reportar problema</li>
+            <li>Llenar el formulario de la opción de Reportar problema</li>
             <li>Click en el botón de Enviar</li>
             <li>Los detalles del reporte generado y su seguimiento se te enviarán por correo electrónico</li>
         </ol>
@@ -54,7 +54,7 @@
           </div>
 
           Nombre: <input type="text" class="form-control" name="txtNombre" placeholder="">
-          <br>
+          Domicilio (colonia, calle, numero): <input type="text" class="form-control" name="txtNombre" placeholder="Arboledas del Carmen, Flor de amapola, 800">
           Telefono: <input type="text" class="form-control" name="txtTelefono" placeholder="Ejemplo 3121111111">
 
           </form>
