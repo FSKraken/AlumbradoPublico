@@ -36620,6 +36620,10 @@ table th {
   color: #000;
 }
 
+html{
+  background: #363535;
+}
+
 caption,
 td {
   font-weight: normal;
