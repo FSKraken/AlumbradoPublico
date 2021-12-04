@@ -16,9 +16,9 @@
                     <thead><tr><th>saas</th><th>saas</th><th>saas</th><th>saas</th><th>saas</th><th>asdas</th></tr></thead>
                     <tbody>
                     <tr><td>x</td><td>x</td><td>x</td><td>x</td><td>x</td><td class="text-end"><a href="javascript:open_reporte(1)"><i class="i-lupa"></i></a></td></tr>
-                    <tr><td>x</td><td>x</td><td>x</td><td>x</td><td>x</td><td class="text-end"><a href="javascript:open_reporte(1)"><i class="i-lupa"></i></a></td></tr>
-                    <tr><td>x</td><td>x</td><td>x</td><td>x</td><td>x</td><td class="text-end"><a href="javascript:open_reporte(1)"><i class="i-lupa"></i></a></td></tr>
-                    <tr><td>x</td><td>x</td><td>x</td><td>x</td><td>x</td><td class="text-end"><a href="javascript:open_reporte(1)"><i class="i-lupa"></i></a></td></tr>
+                    <tr><td>x</td><td>x</td><td>x</td><td>x</td><td>x</td><td class="text-end"><a href="javascript:open_reporte(2)"><i class="i-lupa"></i></a></td></tr>
+                    <tr><td>x</td><td>x</td><td>x</td><td>x</td><td>x</td><td class="text-end"><a href="javascript:open_reporte(3)"><i class="i-lupa"></i></a></td></tr>
+                    <tr><td>x</td><td>x</td><td>x</td><td>x</td><td>x</td><td class="text-end"><a href="javascript:open_reporte(4)"><i class="i-lupa"></i></a></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -38,6 +38,8 @@
 
 <script type="text/javascript">
     function open_reporte(id) {
+        // cargar info del reporte ID
+
         $('#detalles_reporte').modal('show');
     }
 </script>
